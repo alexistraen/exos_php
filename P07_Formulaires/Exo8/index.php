@@ -13,7 +13,6 @@
 
 <body>
 
-
     <div class="m-5">
 
         <p>## Exercice 8
@@ -23,17 +22,16 @@
 
         <?php
 
-        $fileinfo = pathinfo($_FILES['filepdf']['name']);
-        $extension_pdf = $fileinfo['extension'];
-
-        if ($extension_pdf != 'pdf') {
-            echo "CE N'EST PAS UN PDF <br>";
-        } else {
-            echo "C'est bien un pdf wp <br>";
-        }
-
-        if (isset($_POST['lastname']) && isset($_POST['firstname']) && isset($_POST['gender'])) {
-            echo 'Nom : ' . $_POST['lastname'] . ' <br> Prénom : ' . $_POST['firstname'] . ' <br> Genre : ' . $_POST['gender'] . ' <br> Fichier : ' . $_FILES['filepdf']['name'];
+        if (isset($_POST['lastname']) && isset($_POST['firstname']) && isset($_POST['gender']) && isset($_FILES['filepdf'])) {
+            $fileinfo = pathinfo($_FILES['filepdf']['name']);
+            $extension_pdf = $fileinfo['extension'];
+            if ($extension_pdf == 'pdf') {
+                $displayExtension = 'Le fichier est bien un pdf';
+            } else {
+                $displayExtension = 'Le fichier n\'est pas un pdf';
+            }
+            echo 'Nom : ' . $_POST['lastname'] . ' <br> Prénom : ' . $_POST['firstname'] . ' <br> Genre : ' . $_POST['gender'] . ' <br> Fichier : '
+                . $_FILES['filepdf']['name'] . '<br> Extension : ' . $displayExtension;
         } else {
 
         ?>
@@ -50,14 +48,14 @@
                     </div>
                     <div>
                         <select name="gender" id="gender">
-                            <option value="mr">Mr.</option>
-                            <option value="mme">Mme.</option>
+                            <option value="Homme">Mr.</option>
+                            <option value="Femme">Mme.</option>
                         </select>
                     </div>
                     <div>
                         <label for="filepdf">Choisir un fichier :</label>
 
-                        <input type="file" id="filepdf" name="filepdf" accept=".pdf">
+                        <input type="file" id="filepdf" name="filepdf" accept="application/pdf">
                     </div>
                     <input type="submit" value="Envoyer">
                 </form>
