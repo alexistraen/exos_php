@@ -2,17 +2,13 @@
 
 session_start();
 
-$_SESSION['lastname'] = "Soul";
-$_SESSION['firstname'] = "Sam";
-$_SESSION['age'] = 700;
-
 ?>
 
 <!doctype html>
 <html lang="fr">
 
 <head>
-    <title>Exo 2 - Index</title>
+    <title>Exo - User</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -34,10 +30,19 @@ $_SESSION['age'] = 700;
 
         <div>
 
-            <a class="btn btn-primary" href="user.php">Variables</a>
+            <a class="btn btn-secondary" href="index.php">Index</a>
 
         </div>
 
+        <div class="mt-5">
+
+            <?php
+
+            echo '<span class="text-white">Bonjour, je m\'appelle ' . $_SESSION['firstname'] . ' ' . $_SESSION['lastname'] . ' et j\'ai ' . $_SESSION['age'] . ' ans.</span>';
+
+            ?>
+
+        </div>
     </div>
 
     <!-- Optional JavaScript -->
