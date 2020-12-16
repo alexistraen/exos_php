@@ -29,7 +29,7 @@
         if ($extension_pdf != 'pdf') {
             echo "CE N'EST PAS UN PDF <br>";
         } else {
-            echo "C'est bien un pdf gg <br>";
+            echo "C'est bien un pdf wp <br>";
         }
 
         if (isset($_POST['lastname']) && isset($_POST['firstname']) && isset($_POST['gender'])) {

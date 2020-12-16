@@ -1,45 +1,47 @@
-<!doctype html>
+<?php
+
+$regexName = "/^[a-zA-Z]+$/";
+
+if (isset($_POST["firstname"]) && isset($_POST["lastname"])) {
+
+    // Sécurisation des données, regex pour verifier prénom et nom
+    if (preg_match($regexName, $_POST["firstname"])) {
+        $securedFirstname = htmlspecialchars($_POST["firstname"]);
+    } else {
+        $securedFirstname = "<i>Mauvais format</i>";
+    }
+
+    if (preg_match($regexName, $_POST["lastname"])) {
+        $securedLastname = htmlspecialchars($_POST["lastname"]);
+    } else {
+        $securedLastname = "<i>Mauvais format</i>";
+    }
+
+}
+?>
+
+<!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <title>Exo 1 - User</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Partie 7 - Exo 2 & 4</title>
 </head>
-
 <body>
 
-    <p>## Exercice 2
-        Créer un formulaire demandant **le nom** et **le prénom**. Ce formulaire doit rediriger vers la page **user.php** avec la méthode **POST**.</p>
+<p>
+Créer un formulaire demandant **le nom** et **le prénom**. Ce formulaire doit rediriger vers la page **user.php** avec la méthode **POST**.
+</p>
 
-    <div class="m-5 text-center">
-
-        <button class="btn btn-secondary"><a class="text-white" href="index.php">Index</a></button>
-
-        <div>
-
-            <?php
-
-            if (isset($_POST['lastname']) && isset($_POST['firstname'])) {
-                echo 'Nom : ' . $_POST['lastname'] . ' <br> Prénom : ' . $_POST['firstname'];
-            }
-
-            ?>
-
-        </div>
+<?php var_dump($_POST);?>
+<p>Bonjour <?= $securedFirstname . " " . $securedLastname; ?></p>
 
 
-    </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 </body>
-
 </html>
