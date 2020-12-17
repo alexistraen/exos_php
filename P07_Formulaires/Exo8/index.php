@@ -22,7 +22,7 @@
 
         <?php
 
-        if (isset($_POST['lastname']) && isset($_POST['firstname']) && isset($_POST['gender']) && isset($_FILES['filepdf'])) {
+        if (isset($_POST['lastname']) && isset($_POST['firstname']) && isset($_POST['gender'])) {
             $fileinfo = pathinfo($_FILES['filepdf']['name']);
             $extension_pdf = $fileinfo['extension'];
             if ($extension_pdf == 'pdf') {
