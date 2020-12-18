@@ -1,3 +1,19 @@
+<?php
+
+if (isset($_POST['login']) && isset($_POST['password'])) {
+    setcookie('login', $_POST['login'], time() + 365 * 24 * 3600, null, null, false, true);
+    setcookie('password', $_POST['password'], time() + 365 * 24 * 3600, null, null, false, true);
+    header('Location: user.php');
+}
+
+if (isset($_COOKIE['login']) && isset($_COOKIE['password'])) {
+    $displayCookies = '<span class="font-weight-bold text-info">Cookies <br> Login :</span> ' . $_COOKIE['login'] . '<br> <span class="font-weight-bold text-info">Password :</span> ' . $_COOKIE['password'];
+} else {
+    $displayCookies = '<span class="text-danger">Le formulaire n\'a pas été rempli</span>';
+}
+
+?>
+
 <!doctype html>
 <html lang="fr">
 
@@ -11,37 +27,34 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="bg-dark text-center">
+
+    <p class="text-warning col-4 mx-auto">
+        ## Exercice 5
+        Faire une page qui va pouvoir modifier le contenu du cookie de l'exercice 3.</p>
 
     <div class="m-5">
+        <div class="mx-auto">
 
-        <p>## Exercice 5
-            Créer un formulaire sur la page **index.php** avec :
-            - Une liste déroulante pour la civilité (Mr ou Mme)
-            - Un champ texte pour le nom
-            - Un champ texte pour le prénom
-
-            Ce formulaire doit rediriger vers la page **index.php**.
-            Vous avez le choix de la méthode.</p>
-
-        <div>
-            <form action="index.php" method="post">
+            <form enctype="multipart/form-data" action="index.php" method="post">
                 <div>
-                    <label for="lastname">Nom :</label>
-                    <input type="text" id="lastname" name="lastname">
+                    <input class="text-center" placeholder="Login" type="text" id="login" name="login">
                 </div>
                 <div>
-                    <label for="firstname">Prénom :</label>
-                    <input type="text" id="firstname" name="firstname">
+                    <input class="text-center" placeholder="Password" type="text" id="password" name="password">
                 </div>
-                <div>
-                    <select name="gender" id="gender">
-                        <option value="mr">Mr.</option>
-                        <option value="mme">Mme.</option>
-                    </select>
-                </div>
-                <input type="submit" value="Envoyer">
+                <input class="btn btn-info mt-3" type="submit" value="Envoyer">
             </form>
+
+        </div>
+        <div class="mt-3 text-warning">
+
+            <?php
+
+            echo $displayCookies;
+
+            ?>
+
         </div>
 
     </div>

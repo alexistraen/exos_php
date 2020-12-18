@@ -3,7 +3,7 @@
 if (isset($_POST['login']) && isset($_POST['password'])) {
     setcookie('login', $_POST['login'], time() + 365 * 24 * 3600, null, null, false, true);
     setcookie('password', $_POST['password'], time() + 365 * 24 * 3600, null, null, false, true);
-    header('Location: index.php');
+    header('Location: user.php');
 }
 
 if (isset($_COOKIE['login']) && isset($_COOKIE['password'])) {
@@ -18,7 +18,7 @@ if (isset($_COOKIE['login']) && isset($_COOKIE['password'])) {
 <html lang="fr">
 
 <head>
-    <title>Exo 3 - Index</title>
+    <title>Exo 5 - User</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -30,13 +30,15 @@ if (isset($_COOKIE['login']) && isset($_COOKIE['password'])) {
 <body class="bg-dark text-center">
 
     <p class="text-warning col-4 mx-auto">
-        ## Exercice 3
-        Faire un formulaire qui permet de récupérer le login et le
-        mot de passe de l'utilisateur. A la validation du formulaire,
-        stocker les informations dans un cookie.</p>
+        ## Exercice 5
+        Faire une page qui va pouvoir modifier le contenu du cookie de l'exercice 3.</p>
 
-    <div class="m-5">
+    <div class="mt-2">
         <div class="mx-auto">
+
+            <a class="btn btn-secondary" href="index.php">Retour Index</a>
+
+            <p class="text-info font-weight-bold mt-3">Modifier la valeur des cookies</p>
 
             <form enctype="multipart/form-data" action="index.php" method="post">
                 <div>
@@ -45,7 +47,7 @@ if (isset($_COOKIE['login']) && isset($_COOKIE['password'])) {
                 <div>
                     <input class="text-center" placeholder="Password" type="text" id="password" name="password">
                 </div>
-                <input class="btn btn-info mt-3" type="submit" value="Envoyer">
+                <input class="btn btn-info mt-3" type="submit" value="Modifier">
             </form>
 
         </div>
