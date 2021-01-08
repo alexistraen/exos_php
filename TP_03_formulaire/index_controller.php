@@ -8,6 +8,8 @@ $dateValid = '/^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/';
 $poleEmploiValid = '/^([0-9]{7}+[A-Z])$/';
 $adressValid = '/^[0-9a-z ,.\'-]+$/i';
 
+var_dump($_POST);
+
 if (isset($_POST['submit'])) {
 
     if (isset($_POST['lastName'])) {
@@ -96,4 +98,9 @@ if (isset($_POST['submit'])) {
         if (empty($_POST['mail'])) {
         }
     }
+
+if (count($messageError) == 0)  {
+    $secureAdress = htmlspecialchars($_POST['adress']);
+}
+    
 }

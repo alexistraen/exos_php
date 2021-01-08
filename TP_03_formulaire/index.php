@@ -164,10 +164,10 @@ require_once 'index_controller.php';
           <label for="experience">Avez vous déjà eu une expérience avec la <br>programmation et/ou l'informatique avant <br>de remplir ce formulaire ?</label>
         </div>
         <div class="row">
-          <input class="optionRadio" type="radio" id="experience" name="experience"></input>
+          <input class="optionRadio" type="radio" id="experience" name="experience" value="Oui"></input>
           <label class="alignRadio" for="experience">Oui</label>
 
-          <input class="optionRadio" type="radio" id="experience" name="experience"></input>
+          <input class="optionRadio" type="radio" id="experience" name="experience" value="Non"></input>
           <label class="alignRadio" for="experience">Non</label>
         </div>
         <div class="displayMessage">
