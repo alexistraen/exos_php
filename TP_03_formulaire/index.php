@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require_once 'index_controller.php';
 
@@ -105,10 +105,11 @@ require_once 'index_controller.php';
         </div>
         <div>
           <select name="degree" id="degree">
-            <option value="degree01">Sans diplôme</option>
-            <option value="degree02">Bac</option>
-            <option value="degree03">Bac+2</option>
-            <option value="degree04">Bac+3 ou supérieur</option>
+            <option value="choix" selected>Choisir</option>
+            <option value="1">Sans diplôme</option>
+            <option value="2">Bac</option>
+            <option value="3">Bac+2</option>
+            <option value="4">Bac+3 ou supérieur</option>
           </select>
         </div>
         <div class="displayMessage">
@@ -164,14 +165,14 @@ require_once 'index_controller.php';
           <label for="experience">Avez vous déjà eu une expérience avec la <br>programmation et/ou l'informatique avant <br>de remplir ce formulaire ?</label>
         </div>
         <div class="row">
-          <input class="optionRadio" type="radio" id="experience" name="experience" value="Oui"></input>
+          <input class="optionRadio" type="radio" id="experience" name="experience" value="Oui" <?= isset($_POST['experience']) && $_POST['experience'] == 'Oui' ? 'checked' : '' ?>></input>
           <label class="alignRadio" for="experience">Oui</label>
 
-          <input class="optionRadio" type="radio" id="experience" name="experience" value="Non"></input>
+          <input class="optionRadio" type="radio" id="experience" name="experience" value="Non" <?= isset($_POST['experience']) && $_POST['experience'] == 'Non' ? 'checked' : '' ?>></input>
           <label class="alignRadio" for="experience">Non</label>
         </div>
         <div class="displayMessage">
-          <?= (isset($messageError[14])) ? $messageError[14] : '' ?>
+          <?= (isset($messageError['experience'])) ? $messageError['experience'] : '' ?>
         </div>
         <input class="btnColor mb-5" name="submit" type="submit" value="Envoyer">
       </form>

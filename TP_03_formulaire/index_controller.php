@@ -8,6 +8,13 @@ $dateValid = '/^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/';
 $poleEmploiValid = '/^([0-9]{7}+[A-Z])$/';
 $adressValid = '/^[0-9a-z ,.\'-]+$/i';
 
+$degreesArray = [
+    1 => 'Sans diplôme',
+    2 => 'Bac',
+    3 => 'Bac +2',
+    4 => 'Bac +3 ou sup'
+];
+
 var_dump($_POST);
 
 if (isset($_POST['submit'])) {
@@ -97,6 +104,11 @@ if (isset($_POST['submit'])) {
     if (isset($_POST['mail'])) {
         if (empty($_POST['mail'])) {
         }
+    }
+
+    // Radio
+    if (!array_key_exists('experience', $_POST)) {
+        $messageError['experience'] = 'Veuillez faire un choix';
     }
 
 if (count($messageError) == 0)  {
