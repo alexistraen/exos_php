@@ -1,0 +1,19 @@
+html, body {
+    background-color: #713789;
+}
+
+label {
+    color: white;
+}
+
+.displayMessage {
+    height: 2rem;
+    text-align: center;
+    color: indianred;
+    margin-top: 0.2rem;
+    margin-bottom: 0;
+}
+
+.formValid {
+    color: lightgreen;
+}
