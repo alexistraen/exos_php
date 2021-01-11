@@ -45,8 +45,10 @@ if (isset($_POST['submit'])) {
     if (isset($_POST['age'])) {
         if (empty($_POST['age'])) {
             $messageError['age'] = 'Le champs est vide';
+        } else if ($_POST['age'] < 18) {
+            $messageError['age'] = 'L\'âge minimum autorisé est 18 ans';
         } else if (!preg_match($regexAge, $_POST['age'])) {
-            $messageError['age'] = 'Doit contenir des chiffres. (1 à 2 maximum)';
+            $messageError['age'] = 'L\'âge n\'est pas valide';
         } else {
             $messageSuccess['age'] = '<i class="fas fa-check formValid"></i>';
         }
@@ -127,16 +129,16 @@ if (isset($_POST['submit'])) {
 
 <body>
 
-    <div class="container-fluid text-center">
-        <h1 class="mt-3">Dual Love</h1>
-        <h2 class="mt-3">Inscrivez-vous sur notre site !</h1>
-            <div class="bg-dark col-lg-3 col-sm-12 mx-auto">
-                <form class="mt-5" action="index.php" enctype="multipart/form-data" method="post">
+    <div class="container-fluid text-center p-0">
+        <h1 class="p-2 text-white navbarColor"><i class="fas fa-hand-holding-heart"></i> <span class="titleColorPink">Dual </span><span class="titleColorBlue">Love</span></h1>
+        <h2 class="mt-4 text-white">Inscription</h1>
+            <div class="bgColor col-xl-3 col-sm-8 mx-auto">
+                <form class="mt-4 pt-3" action="index.php" enctype="multipart/form-data" method="post">
                     <div>
                         <label for="lastName">Nom</label>
                     </div>
                     <div>
-                        <input type="text" id="lastName" name="lastName" value="<?= isset($_POST['lastName']) ? $_POST['lastName'] : '' ?>" placeholder="Mounivongs">
+                        <input class="fields" type="text" id="lastName" name="lastName" value="<?= isset($_POST['lastName']) ? $_POST['lastName'] : '' ?>" placeholder="Peplu">
                     </div>
                     <p class="displayMessage">
                         <?= isset($messageError['lastName']) ? $messageError['lastName'] : '' ?><?= isset($messageSuccess['lastName']) ? $messageSuccess['lastName'] : '' ?>
@@ -145,7 +147,7 @@ if (isset($_POST['submit'])) {
                         <label for="firstName">Prénom</label>
                     </div>
                     <div>
-                        <input type="text" id="firstName" name="firstName" value="<?= isset($_POST['firstName']) ? $_POST['firstName'] : '' ?>" placeholder="Mounivongs">
+                        <input class="fields" type="text" id="firstName" name="firstName" value="<?= isset($_POST['firstName']) ? $_POST['firstName'] : '' ?>" placeholder="Jean">
                     </div>
                     <p class="displayMessage">
                         <?= isset($messageError['firstName']) ? $messageError['firstName'] : '' ?><?= isset($messageSuccess['firstName']) ? $messageSuccess['firstName'] : '' ?>
@@ -154,7 +156,7 @@ if (isset($_POST['submit'])) {
                         <label for="age">Age</label>
                     </div>
                     <div>
-                        <input type="number" id="age" name="age" value="<?= isset($_POST['age']) ? $_POST['age'] : '' ?>" placeholder="50">
+                        <input class="fields" type="number" id="age" name="age" value="<?= isset($_POST['age']) ? $_POST['age'] : '' ?>" placeholder="50">
                     </div>
                     <p class="displayMessage">
                         <?= isset($messageError['age']) ? $messageError['age'] : '' ?><?= isset($messageSuccess['age']) ? $messageSuccess['age'] : '' ?>
@@ -163,7 +165,7 @@ if (isset($_POST['submit'])) {
                         <label for="gender">Genre</label>
                     </div>
                     <div>
-                        <select name="gender" id="gender">
+                        <select class="fields" name="gender" id="gender">
                             <option>Choisir</option>
                             <option value="Homme" <?= isset($_POST['gender']) && $_POST['gender'] == 'Homme' ? 'selected' : '' ?>>Homme</option>
                             <option value="Femme" <?= isset($_POST['gender']) && $_POST['gender'] == 'Femme' ? 'selected' : '' ?>>Femme</option>
@@ -176,7 +178,7 @@ if (isset($_POST['submit'])) {
                         <label for="zipcode">Code postal</label>
                     </div>
                     <div>
-                        <input type="text" id="zipcode" name="zipcode" value="<?= isset($_POST['zipcode']) ? $_POST['zipcode'] : '' ?>" placeholder="80500">
+                        <input class="fields" type="text" id="zipcode" name="zipcode" value="<?= isset($_POST['zipcode']) ? $_POST['zipcode'] : '' ?>" placeholder="60200">
                     </div>
                     <p class="displayMessage">
                         <?= isset($messageError['zipcode']) ? $messageError['zipcode'] : '' ?><?= isset($messageSuccess['zipcode']) ? $messageSuccess['zipcode'] : '' ?>
@@ -185,7 +187,7 @@ if (isset($_POST['submit'])) {
                         <label for="mail">Adresse mail</label>
                     </div>
                     <div>
-                        <input type="email" id="mail" name="mail" value="<?= isset($_POST['mail']) ? $_POST['mail'] : '' ?>" placeholder="michel@gmail.com">
+                        <input class="fields" type="email" id="mail" name="mail" value="<?= isset($_POST['mail']) ? $_POST['mail'] : '' ?>" placeholder="jean-peplu@gmail.com">
                     </div>
                     <p class="displayMessage">
                         <?= isset($messageError['mail']) ? $messageError['mail'] : '' ?><?= isset($messageSuccess['mail']) ? $messageSuccess['mail'] : '' ?>
@@ -195,14 +197,14 @@ if (isset($_POST['submit'])) {
                     </div>
                     <div class="text-white">
                         <input type="radio" id="genderSearch" name="genderSearch" value="Homme"<?= isset($_POST['genderSearch']) && $_POST['genderSearch'] == 'Homme' ? 'checked' : '' ?>>
-                        <label for="genderSearch">Homme</label>
+                        <label class="mr-3" for="genderSearch">Homme</label>
                         <input type="radio" id="genderSearch" name="genderSearch" value="Femme"<?= isset($_POST['genderSearch']) && $_POST['genderSearch'] == 'Femme' ? 'checked' : '' ?>>
                         <label for="genderSearch">Femme</label>
                     </div>
                     <p class="displayMessage">
                         <?= isset($messageError['genderSearch']) ? $messageError['genderSearch'] : '' ?><?= isset($messageSuccess['genderSearch']) ? $messageSuccess['genderSearch'] : '' ?>
                     </p>
-                    <input class="mb-3" name="submit" type="submit" value="Envoyer">
+                    <input class="btn mb-3 sendBtn" name="submit" type="submit" value="Envoyer">
                 </form>
             </div>
     </div>

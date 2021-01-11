@@ -145,15 +145,17 @@ $user_datas = [
     <div id='nav-container'>
 
         <div class="container-fluid col-12 p-0 m-0">
-            <div id="home" class="bg-dark text-center py-2">
-                <nav class="navbar navbar-expand-lg navbar-light bg-dark text-white">
+            <div id="home" class="navbarColor text-center py-2">
+                <nav class="navbar navbar-expand-lg navbar-dark text-white">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                         <ul class="navbar-nav">
                             <li>
-                             <a class="navbar-brand text-uppercase"><?= 'Bonjour ' . $_COOKIE['user_firstName'] . ' <i class="fas fa-heart text-danger"></i>' ?></a>
+                                <a class="navbar-brand text-uppercase mx-5">
+                                    <?= isset($_COOKIE['user_firstName']) ? 'Bonjour ' . $_COOKIE['user_firstName'] . ' <i class="fas fa-heart text-danger"></i>' : 'Bonjour <i class="fas fa-heart text-danger"></i>' ?>
+                                </a>
                             </li>
                             <li>
                                 <a class="navbar-brand text-uppercase text-white mx-5" href="user.php">Nos célibataires</a>

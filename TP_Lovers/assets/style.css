@@ -1,5 +1,11 @@
+@font-face {
+    font-family: Quicksand;
+    src: url(../assets/fonts/Quicksand-Regular.ttf) format("truetype");
+}
+
 html, body {
-    background-color: #713789;
+    background-color: #654A71;
+    font-family: Quicksand;
 }
 
 label {
@@ -15,5 +21,43 @@ label {
 }
 
 .formValid {
-    color: lightgreen;
+    color: #00E8CC;
+}
+
+.fields {
+    border-radius: 20px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: 0;
+    box-shadow: 1px 3px 3px 1px black;
+}
+
+.bgColor {
+    background-color: #191919;
+    border-radius: 10px;
+    box-shadow: 1px 1px 20px 0px black;
+    margin-bottom: 2rem;
+}
+
+.titleColorPink {
+    color: #9A0034;
+}
+
+.titleColorBlue {
+    color: #00769B;
+}
+
+.navbarColor {
+    background-color: #121212;
+}
+
+.sendBtn {
+    background-color: #9A0034;
+    color: white;
+    width: 10rem;
+}
+
+.sendBtn:hover {
+    color: white;
+    box-shadow: 1px 1px 15px 0px #C70043;
 }
