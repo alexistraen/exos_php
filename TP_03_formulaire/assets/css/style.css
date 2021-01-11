@@ -52,6 +52,7 @@ label {
     text-align: center;
     color: indianred;
     margin-top: 0.2rem;
+    margin-bottom: 0;
 }
 
 .formValid {
