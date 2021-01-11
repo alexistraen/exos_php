@@ -61,3 +61,31 @@ label {
     color: white;
     box-shadow: 1px 1px 15px 0px #C70043;
 }
+
+.userInfosList {
+    list-style-type: none;
+    padding: 1.5rem;
+    color: white;
+    border-radius: 10px;
+}
+
+.navbar-brand:hover {
+    color: white !important;
+    font-weight: bold;
+}
+
+.modal-content {
+    background-color: #121212;
+}
+
+.modal-body, .modal-footer {
+    background-color: #654A71;
+}
+
+.cancelBtn {
+    background-color: #121212;
+}
+
+.cancelBtn:hover {
+    box-shadow: 1px 1px 15px 0px #121212;
+}

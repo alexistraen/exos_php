@@ -99,13 +99,13 @@ if (isset($_POST['submit'])) {
         $secureMail = htmlspecialchars($_POST['mail']);
         $secureGenderSearch = htmlspecialchars($_POST['genderSearch']);
 
-        setcookie('user_lastName', $_POST['lastName'], time() + 24*3600, null, null, false, true);
-        setcookie('user_firstName', $_POST['firstName'], time() + 24*3600, null, null, false, true);
-        setcookie('user_age', $_POST['age'], time() + 24*3600, null, null, false, true);
-        setcookie('user_gender', $_POST['gender'], time() + 24*3600, null, null, false, true);
-        setcookie('user_zipCode', $_POST['zipcode'], time() + 24*3600, null, null, false, true);
-        setcookie('user_mail', $_POST['mail'], time() + 24*3600, null, null, false, true);
-        setcookie('user_genderSearch', $_POST['genderSearch'], time() + 24*3600, null, null, false, true);
+        setcookie('user_lastName', $secureLastName, time() + 24*3600, null, null, false, true);
+        setcookie('user_firstName', $secureFirstName, time() + 24*3600, null, null, false, true);
+        setcookie('user_age', $secureAge, time() + 24*3600, null, null, false, true);
+        setcookie('user_gender', $secureGender, time() + 24*3600, null, null, false, true);
+        setcookie('user_zipCode', $secureZipCode, time() + 24*3600, null, null, false, true);
+        setcookie('user_mail', $secureMail, time() + 24*3600, null, null, false, true);
+        setcookie('user_genderSearch', $secureGenderSearch, time() + 24*3600, null, null, false, true);
 
         header('Location: lovers.php');
     }
@@ -117,7 +117,7 @@ if (isset($_POST['submit'])) {
 <html lang="fr">
 
 <head>
-    <title>Dual Love</title>
+    <title>Dual Love - Inscription</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -153,7 +153,7 @@ if (isset($_POST['submit'])) {
                         <?= isset($messageError['firstName']) ? $messageError['firstName'] : '' ?><?= isset($messageSuccess['firstName']) ? $messageSuccess['firstName'] : '' ?>
                     </p>
                     <div>
-                        <label for="age">Age</label>
+                        <label for="age">Âge</label>
                     </div>
                     <div>
                         <input class="fields" type="number" id="age" name="age" value="<?= isset($_POST['age']) ? $_POST['age'] : '' ?>" placeholder="50">
