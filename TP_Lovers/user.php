@@ -32,16 +32,21 @@ if (isset($_POST['clearCookies'])) {
 
 <body>
 
-    <div class="container-fluid col-12 p-0 m-0">
+    <div class="container-fluid col-12 p-0">
         <div id="home" class="navbarColor text-center py-2">
-            <nav class="navbar navbar-expand-lg navbar-dark">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <nav class="navbar navbar-expand-lg navbar-dark p-2">
+                <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <div class="d-lg-none m-0">
+                    <h1 class="text-white mx-5"><i class="fas fa-hand-holding-heart"></i> <span class="titleColorPink">Dual </span><span class="titleColorBlue">Love</span></h1>
+                </div>
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                     <ul class="navbar-nav">
                         <li>
-                            <h1 class="text-white mx-5"><i class="fas fa-hand-holding-heart"></i> <span class="titleColorPink">Dual </span><span class="titleColorBlue">Love</span></h1>
+                            <div class="d-none d-lg-block">
+                                <h1 class="text-white mx-5"><i class="fas fa-hand-holding-heart"></i> <span class="titleColorPink">Dual </span><span class="titleColorBlue">Love</span></h1>
+                            </div>
                         </li>
                         <li class="my-auto">
                             <a class="navbar-brand text-uppercase text-white mx-5">
