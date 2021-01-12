@@ -1,12 +1,5 @@
 <?php
 
-$messageError = [];
-$messageSuccess = [];
-
-$regexName = '/^\D{2,19}$/';
-$regexAge = '/^[0-9]{0,2}$/';
-$regexZipCode = '/^([0-9]{2,6})$/';
-
 $genderArray = [
     1 => 'Homme',
     2 => 'Femme'
@@ -17,6 +10,13 @@ if (!empty($_COOKIE)) {
 }
 
 if (isset($_POST['submit'])) {
+
+    $messageError = [];
+    $messageSuccess = [];
+
+    $regexName = '/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.\'-]+$/';
+    $regexAge = '/^[0-9]{0,2}$/';
+    $regexZipCode = '/^([0-9]{2,6})$/';
 
     if (isset($_POST['lastName'])) {
         if (empty($_POST['lastName'])) {
@@ -90,24 +90,28 @@ if (isset($_POST['submit'])) {
         $messageSuccess['genderSearch'] = '<i class="fas fa-check formValid"></i>';
     }
 
-    if (count($messageError) == 0) {
+    if (isset($messageError)) {
+
         $secureLastName = htmlspecialchars($_POST['lastName']);
         $secureFirstName = htmlspecialchars($_POST['firstName']);
         $secureAge = htmlspecialchars($_POST['age']);
         $secureGender = htmlspecialchars($_POST['gender']);
         $secureZipCode = htmlspecialchars($_POST['zipcode']);
         $secureMail = htmlspecialchars($_POST['mail']);
-        $secureGenderSearch = htmlspecialchars($_POST['genderSearch']);
+        $secureGenderSearch = (isset($_POST['genderSearch'])) ? htmlspecialchars($_POST['genderSearch']) : '';
 
-        setcookie('user_lastName', $secureLastName, time() + 24*3600, null, null, false, true);
-        setcookie('user_firstName', $secureFirstName, time() + 24*3600, null, null, false, true);
-        setcookie('user_age', $secureAge, time() + 24*3600, null, null, false, true);
-        setcookie('user_gender', $secureGender, time() + 24*3600, null, null, false, true);
-        setcookie('user_zipCode', $secureZipCode, time() + 24*3600, null, null, false, true);
-        setcookie('user_mail', $secureMail, time() + 24*3600, null, null, false, true);
-        setcookie('user_genderSearch', $secureGenderSearch, time() + 24*3600, null, null, false, true);
+        if (count($messageError) == 0) {
 
-        header('Location: lovers.php');
+            setcookie('user_lastName', $secureLastName, time() + 24 * 3600, null, null, false, true);
+            setcookie('user_firstName', $secureFirstName, time() + 24 * 3600, null, null, false, true);
+            setcookie('user_age', $secureAge, time() + 24 * 3600, null, null, false, true);
+            setcookie('user_gender', $secureGender, time() + 24 * 3600, null, null, false, true);
+            setcookie('user_zipCode', $secureZipCode, time() + 24 * 3600, null, null, false, true);
+            setcookie('user_mail', $secureMail, time() + 24 * 3600, null, null, false, true);
+            setcookie('user_genderSearch', $secureGenderSearch, time() + 24 * 3600, null, null, false, true);
+
+            header('Location: lovers.php');
+        }
     }
 }
 
@@ -138,7 +142,7 @@ if (isset($_POST['submit'])) {
                         <label for="lastName">Nom</label>
                     </div>
                     <div>
-                        <input class="fields" type="text" id="lastName" name="lastName" value="<?= isset($_POST['lastName']) ? $_POST['lastName'] : '' ?>" placeholder="Peplu">
+                        <input class="fields" type="text" id="lastName" name="lastName" value="<?= isset($secureLastName) ? $secureLastName : '' ?>" placeholder="Peplu">
                     </div>
                     <p class="displayMessage">
                         <?= isset($messageError['lastName']) ? $messageError['lastName'] : '' ?><?= isset($messageSuccess['lastName']) ? $messageSuccess['lastName'] : '' ?>
@@ -147,7 +151,7 @@ if (isset($_POST['submit'])) {
                         <label for="firstName">Prénom</label>
                     </div>
                     <div>
-                        <input class="fields" type="text" id="firstName" name="firstName" value="<?= isset($_POST['firstName']) ? $_POST['firstName'] : '' ?>" placeholder="Jean">
+                        <input class="fields" type="text" id="firstName" name="firstName" value="<?= isset($secureFirstName) ? $secureFirstName : '' ?>" placeholder="Jean">
                     </div>
                     <p class="displayMessage">
                         <?= isset($messageError['firstName']) ? $messageError['firstName'] : '' ?><?= isset($messageSuccess['firstName']) ? $messageSuccess['firstName'] : '' ?>
@@ -156,7 +160,7 @@ if (isset($_POST['submit'])) {
                         <label for="age">Âge</label>
                     </div>
                     <div>
-                        <input class="fields" type="number" id="age" name="age" value="<?= isset($_POST['age']) ? $_POST['age'] : '' ?>" placeholder="50">
+                        <input class="fields" type="number" id="age" name="age" value="<?= isset($secureAge) ? $secureAge : '' ?>" placeholder="50">
                     </div>
                     <p class="displayMessage">
                         <?= isset($messageError['age']) ? $messageError['age'] : '' ?><?= isset($messageSuccess['age']) ? $messageSuccess['age'] : '' ?>
@@ -167,8 +171,8 @@ if (isset($_POST['submit'])) {
                     <div>
                         <select class="fields" name="gender" id="gender">
                             <option>Choisir</option>
-                            <option value="Homme" <?= isset($_POST['gender']) && $_POST['gender'] == 'Homme' ? 'selected' : '' ?>>Homme</option>
-                            <option value="Femme" <?= isset($_POST['gender']) && $_POST['gender'] == 'Femme' ? 'selected' : '' ?>>Femme</option>
+                            <option value="Homme" <?= isset($secureGender) && $secureGender == 'Homme' ? 'selected' : '' ?>>Homme</option>
+                            <option value="Femme" <?= isset($secureGender) && $secureGender == 'Femme' ? 'selected' : '' ?>>Femme</option>
                         </select>
                     </div>
                     <p class="displayMessage">
@@ -178,7 +182,7 @@ if (isset($_POST['submit'])) {
                         <label for="zipcode">Code postal</label>
                     </div>
                     <div>
-                        <input class="fields" type="text" id="zipcode" name="zipcode" value="<?= isset($_POST['zipcode']) ? $_POST['zipcode'] : '' ?>" placeholder="60200">
+                        <input class="fields" type="text" id="zipcode" name="zipcode" value="<?= isset($secureZipCode) ? $secureZipCode : '' ?>" placeholder="60200">
                     </div>
                     <p class="displayMessage">
                         <?= isset($messageError['zipcode']) ? $messageError['zipcode'] : '' ?><?= isset($messageSuccess['zipcode']) ? $messageSuccess['zipcode'] : '' ?>
@@ -187,7 +191,7 @@ if (isset($_POST['submit'])) {
                         <label for="mail">Adresse mail</label>
                     </div>
                     <div>
-                        <input class="fields" type="email" id="mail" name="mail" value="<?= isset($_POST['mail']) ? $_POST['mail'] : '' ?>" placeholder="jean-peplu@gmail.com">
+                        <input class="fields" type="email" id="mail" name="mail" value="<?= isset($secureMail) ? $secureMail : '' ?>" placeholder="jean-peplu@gmail.com">
                     </div>
                     <p class="displayMessage">
                         <?= isset($messageError['mail']) ? $messageError['mail'] : '' ?><?= isset($messageSuccess['mail']) ? $messageSuccess['mail'] : '' ?>
@@ -196,9 +200,9 @@ if (isset($_POST['submit'])) {
                         <label for="genderSearch">Je recherche</label>
                     </div>
                     <div class="text-white">
-                        <input type="radio" id="genderSearch" name="genderSearch" value="Homme"<?= isset($_POST['genderSearch']) && $_POST['genderSearch'] == 'Homme' ? 'checked' : '' ?>>
+                        <input type="radio" id="genderSearch" name="genderSearch" value="Homme" <?= isset($secureGenderSearch) && $secureGenderSearch == 'Homme' ? 'checked' : '' ?>>
                         <label class="mr-3" for="genderSearch">Homme</label>
-                        <input type="radio" id="genderSearch" name="genderSearch" value="Femme"<?= isset($_POST['genderSearch']) && $_POST['genderSearch'] == 'Femme' ? 'checked' : '' ?>>
+                        <input type="radio" id="genderSearch" name="genderSearch" value="Femme" <?= isset($secureGenderSearch) && $secureGenderSearch == 'Femme' ? 'checked' : '' ?>>
                         <label for="genderSearch">Femme</label>
                     </div>
                     <p class="displayMessage">

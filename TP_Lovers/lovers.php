@@ -123,6 +123,14 @@ $user_datas = [
     ]
 ];
 
+if (!isset($_COOKIE['user_genderSearch'])) {
+    $displayGender = 'Vous n\'êtes pas encore inscrit !';
+} else if ($_COOKIE['user_genderSearch'] === 'Homme') {
+    $displayGender = 'Vous avez demandé à voir des hommes.';
+} else {
+    $displayGender = 'Vous avez demandé à voir des femmes.';
+}
+
 ?>
 
 <!doctype html>
@@ -175,6 +183,7 @@ $user_datas = [
         </div>
     </div>
 
+    <h1 class="text-center textBlack mt-2 col-sm-8 col-lg-12 col-md-12"><?= $displayGender ?></h1>
     <div class="container-fluid row justify-content-center m-0">
 
         <?php
@@ -203,6 +212,7 @@ $user_datas = [
                 foreach ($user_datas as $key => $value) {
                     if ($value['gender'] === 'Femme') {
                     ?>
+                    
                         <div class="card m-1" style="width: 18rem;">
                             <img src="assets/img/<?= $value['picture'] ?>" class="card-img-top imgSize" alt="...">
                             <div class="card-body">

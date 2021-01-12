@@ -109,3 +109,7 @@ label {
 .likeBtn:hover {
     color: #AD0F2C;
 }
+
+.textBlack {
+    color: black;
+}
