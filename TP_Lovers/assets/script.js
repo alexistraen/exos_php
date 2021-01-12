@@ -8,3 +8,4 @@ arrayLikeBtn.forEach(element => {
         element.classList.toggle('far');
     }
 });
+
