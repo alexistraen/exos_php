@@ -4,8 +4,8 @@ let arrayLikeBtn = [...likeBtn];
 
 arrayLikeBtn.forEach(element => {
     element.onclick = function () {
-        element.classList.toggle('fas');
-        element.classList.toggle('far');
+        element.classList.toggle('corazon');
+        element.classList.toggle('corazonV2');
     }
 });
 

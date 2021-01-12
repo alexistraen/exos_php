@@ -201,7 +201,7 @@ if (!isset($_COOKIE['user_genderSearch'])) {
                                     <p class="text-card"><?= $value['description'] ?></p>
                                 </div>
                                 <div class="card-footer">
-                                    <i class="btn far fa-heart p-0 likeBtn"></i>
+                                    <i class="btn corazon p-0 likeBtn"></i>
                                 </div>
                             </div>
                         <?php
@@ -222,7 +222,7 @@ if (!isset($_COOKIE['user_genderSearch'])) {
                                     <p class="text-card"><?= $value['description'] ?></p>
                                 </div>
                                 <div class="card-footer">
-                                    <i class="btn far fa-heart p-0 likeBtn"></i>
+                                    <i class="btn corazon p-0 likeBtn"></i>
                                 </div>
                             </div>
             <?php
