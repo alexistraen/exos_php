@@ -124,7 +124,7 @@ $user_datas = [
 ];
 
 if (!isset($_COOKIE['user_genderSearch'])) {
-    $displayGender = 'Vous n\'êtes pas encore inscrit !';
+    $displayGender = 'Vous n\'êtes pas encore inscrit ! <br> <a class="mt-3 btn sendBtn" style="width: 15rem;" href="index.php"><i class="fas fa-hand-point-right"></i> M\'inscrire maintenant</a>';
 } else if ($_COOKIE['user_genderSearch'] === 'Homme') {
     $displayGender = 'Vous avez demandé à voir des hommes.';
 } else {
