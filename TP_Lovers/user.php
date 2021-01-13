@@ -1,17 +1,19 @@
 <?php
 
-if (isset($_POST['clearCookies'])) {
-    if (!empty($_COOKIE)) {
-        setcookie('user_lastName', '', time() + 1, null, null, false, true);
-        setcookie('user_firstName', '', time() + 1, null, null, false, true);
-        setcookie('user_age', '', time() + 1, null, null, false, true);
-        setcookie('user_gender', '', time() + 1, null, null, false, true);
-        setcookie('user_zipCode', '', time() + 1, null, null, false, true);
-        setcookie('user_mail', '', time() + 1, null, null, false, true);
-        setcookie('user_genderSearch', '', time() + 1, null, null, false, true);
+if (empty($_COOKIE)) {
+    header("Location: index.php");
+}
 
-        header("Location: index.php");
-    }
+if (isset($_POST['clearCookies'])) {
+    setcookie('user_lastName', '', time() + 1, null, null, false, true);
+    setcookie('user_firstName', '', time() + 1, null, null, false, true);
+    setcookie('user_age', '', time() + 1, null, null, false, true);
+    setcookie('user_gender', '', time() + 1, null, null, false, true);
+    setcookie('user_zipCode', '', time() + 1, null, null, false, true);
+    setcookie('user_mail', '', time() + 1, null, null, false, true);
+    setcookie('user_genderSearch', '', time() + 1, null, null, false, true);
+
+    header("Location: index.php");
 }
 
 ?>
@@ -40,26 +42,26 @@ if (isset($_POST['clearCookies'])) {
                         <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <div class="d-lg-none m-0">
-                            <h1 class="text-white mx-5"><i class="fas fa-hand-holding-heart"></i> <span class="titleColorPink">Dual </span><span class="titleColorBlue">Love</span></h1>
+                        <div class="d-lg-none m-0 mx-auto text-white h1">
+                            <i class="fas fa-hand-holding-heart"></i> <span class="titleColorPink">Dual </span><span class="titleColorBlue">Love</span>
                         </div>
                         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                             <ul class="navbar-nav">
                                 <li>
-                                    <div class="d-none d-lg-block">
-                                        <h1 class="text-white mx-5"><i class="fas fa-hand-holding-heart"></i> <span class="titleColorPink">Dual </span><span class="titleColorBlue">Love</span></h1>
+                                    <div class="d-none d-lg-block text-white mx-3 h1">
+                                        <i class="fas fa-hand-holding-heart"></i> <span class="titleColorPink">Dual </span><span class="titleColorBlue">Love</span>
                                     </div>
                                 </li>
                                 <li class="my-auto">
-                                    <a class="navbar-brand text-uppercase text-white mx-5">
+                                    <a class="navbar-brand text-uppercase text-white mx-3">
                                         <?= isset($_COOKIE['user_firstName']) ? 'Bonjour ' . $_COOKIE['user_firstName'] . ' <i class="fas fa-heart text-danger"></i>' : 'Bonjour <i class="fas fa-heart text-danger"></i>' ?>
                                     </a>
                                 </li>
                                 <li class="my-auto">
-                                    <a class="navbar-brand text-uppercase text-white mx-5" href="lovers.php">Nos célibataires</a>
+                                    <a class="navbar-brand text-uppercase text-white mx-3" href="lovers.php">Nos célibataires</a>
                                 </li>
                                 <li class="my-auto">
-                                    <a class="navbar-brand text-uppercase text-white mx-5" href="user.php">Inscription</a>
+                                    <a class="navbar-brand text-uppercase text-white mx-3" href="user.php">Mes infos / Inscription</a>
                                 </li>
                             </ul>
                         </div>
@@ -71,10 +73,10 @@ if (isset($_POST['clearCookies'])) {
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header border-0">
-                            <h5 class="modal-title text-white font-weight-bold" id="exampleModalLabel">Suppression des Cookies</h5>
+                            <h5 class="modal-title text-white font-weight-bold" id="exampleModalLabel">Suppression des informations</h5>
                         </div>
                         <div class="modal-body bg-white textBlack border-0">
-                            Voulez-vous vraiment supprimer vos cookies ?
+                            Voulez-vous vraiment supprimer vos informations ?
                         </div>
                         <div class="modal-footer bg-white border-0">
                             <button type="button" class="btn cancelBtn text-white" data-dismiss="modal">Annuler</button>

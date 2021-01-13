@@ -1,10 +1,5 @@
 <?php
 
-$genderArray = [
-    1 => 'Homme',
-    2 => 'Femme'
-];
-
 if (!empty($_COOKIE)) {
     header('Location: lovers.php');
 }
@@ -17,6 +12,11 @@ if (isset($_POST['submit'])) {
     $regexName = '/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.\'-]+$/';
     $regexAge = '/^[0-9]{0,2}$/';
     $regexZipCode = '/^([0-9]{2,6})$/';
+
+    $genderArray = [
+        1 => 'Homme',
+        2 => 'Femme'
+    ];
 
     if (isset($_POST['lastName'])) {
         if (empty($_POST['lastName'])) {

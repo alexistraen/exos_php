@@ -158,26 +158,26 @@ if (!isset($_COOKIE['user_genderSearch'])) {
                         <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <div class="d-lg-none m-0 mx-auto">
-                            <h1 class="text-white mx-5"><i class="fas fa-hand-holding-heart"></i> <span class="titleColorPink">Dual </span><span class="titleColorBlue">Love</span></h1>
+                        <div class="d-lg-none m-0 mx-auto text-white h1">
+                            <i class="fas fa-hand-holding-heart"></i> <span class="titleColorPink">Dual </span><span class="titleColorBlue">Love</span>
                         </div>
                         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                             <ul class="navbar-nav">
                                 <li>
-                                    <div class="d-none d-lg-block">
-                                        <h1 class="text-white mx-5"><i class="fas fa-hand-holding-heart"></i> <span class="titleColorPink">Dual </span><span class="titleColorBlue">Love</span></h1>
+                                    <div class="d-none d-lg-block text-white mx-3 h1">
+                                        <i class="fas fa-hand-holding-heart"></i> <span class="titleColorPink">Dual </span><span class="titleColorBlue">Love</span>
                                     </div>
                                 </li>
                                 <li class="my-auto">
-                                    <a class="navbar-brand text-uppercase text-white mx-5">
+                                    <a class="navbar-brand text-uppercase text-white mx-3">
                                         <?= isset($_COOKIE['user_firstName']) ? 'Bonjour ' . $_COOKIE['user_firstName'] . ' <i class="fas fa-heart text-danger"></i>' : 'Bonjour <i class="fas fa-heart text-danger"></i>' ?>
                                     </a>
                                 </li>
                                 <li class="my-auto">
-                                    <a class="navbar-brand text-uppercase text-white mx-5" href="lovers.php">Nos célibataires</a>
+                                    <a class="navbar-brand text-uppercase text-white mx-3" href="lovers.php">Nos célibataires</a>
                                 </li>
                                 <li class="my-auto">
-                                    <a class="navbar-brand text-uppercase text-white mx-5" href="user.php">Inscription</a>
+                                    <a class="navbar-brand text-uppercase text-white mx-3" href="user.php">Mes infos / Inscription</a>
                                 </li>
                             </ul>
                         </div>
