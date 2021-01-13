@@ -8,4 +8,3 @@ arrayLikeBtn.forEach(element => {
         element.classList.toggle('corazonV2');
     }
 });
-

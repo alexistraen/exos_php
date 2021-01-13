@@ -9,6 +9,12 @@ body {
     font-family: Quicksand;
 }
 
+/* Solution divine du footer */
+
+.wrapper {
+    min-height: calc(100vh - 246px);
+}
+
 label {
     color: white;
 }

@@ -150,87 +150,89 @@ if (!isset($_COOKIE['user_genderSearch'])) {
 
 <body>
 
-    <div id="bodySize">
-        <div class="container-fluid col-12 p-0">
-            <div id="home" class="navbarColor text-center py-2">
-                <nav class="navbar navbar-expand-lg navbar-dark p-2">
-                    <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="d-lg-none m-0 mx-auto">
-                        <h1 class="text-white mx-5"><i class="fas fa-hand-holding-heart"></i> <span class="titleColorPink">Dual </span><span class="titleColorBlue">Love</span></h1>
-                    </div>
-                    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li>
-                                <div class="d-none d-lg-block">
-                                    <h1 class="text-white mx-5"><i class="fas fa-hand-holding-heart"></i> <span class="titleColorPink">Dual </span><span class="titleColorBlue">Love</span></h1>
-                                </div>
-                            </li>
-                            <li class="my-auto">
-                                <a class="navbar-brand text-uppercase text-white mx-5">
-                                    <?= isset($_COOKIE['user_firstName']) ? 'Bonjour ' . $_COOKIE['user_firstName'] . ' <i class="fas fa-heart text-danger"></i>' : 'Bonjour <i class="fas fa-heart text-danger"></i>' ?>
-                                </a>
-                            </li>
-                            <li class="my-auto">
-                                <a class="navbar-brand text-uppercase text-white mx-5" href="lovers.php">Nos célibataires</a>
-                            </li>
-                            <li class="my-auto">
-                                <a class="navbar-brand text-uppercase text-white mx-5" href="user.php">Inscription</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+    <div class="wrapper">
+        <div id="bodySize">
+            <div class="container-fluid col-12 p-0">
+                <div id="home" class="navbarColor text-center py-2">
+                    <nav class="navbar navbar-expand-lg navbar-dark p-2">
+                        <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="d-lg-none m-0 mx-auto">
+                            <h1 class="text-white mx-5"><i class="fas fa-hand-holding-heart"></i> <span class="titleColorPink">Dual </span><span class="titleColorBlue">Love</span></h1>
+                        </div>
+                        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li>
+                                    <div class="d-none d-lg-block">
+                                        <h1 class="text-white mx-5"><i class="fas fa-hand-holding-heart"></i> <span class="titleColorPink">Dual </span><span class="titleColorBlue">Love</span></h1>
+                                    </div>
+                                </li>
+                                <li class="my-auto">
+                                    <a class="navbar-brand text-uppercase text-white mx-5">
+                                        <?= isset($_COOKIE['user_firstName']) ? 'Bonjour ' . $_COOKIE['user_firstName'] . ' <i class="fas fa-heart text-danger"></i>' : 'Bonjour <i class="fas fa-heart text-danger"></i>' ?>
+                                    </a>
+                                </li>
+                                <li class="my-auto">
+                                    <a class="navbar-brand text-uppercase text-white mx-5" href="lovers.php">Nos célibataires</a>
+                                </li>
+                                <li class="my-auto">
+                                    <a class="navbar-brand text-uppercase text-white mx-5" href="user.php">Inscription</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
             </div>
-        </div>
 
-        <h1 class="text-center textBlack bg-light p-2 col-sm-8 col-lg-12 col-md-12 mb-4"><?= $displayGender ?></h1>
-        <div class="container-fluid row justify-content-center m-0">
+            <h1 class="text-center textBlack bg-light p-2 col-sm-8 col-lg-12 col-md-12 mb-4"><?= $displayGender ?></h1>
+            <div class="container-fluid row justify-content-center m-0">
 
-            <?php
-            if (isset($_COOKIE['user_genderSearch'])) {
-                if ($_COOKIE['user_genderSearch'] === 'Homme') {
-                    foreach ($user_datas as $key => $value) {
-                        if ($value['gender'] === 'Homme') {
-            ?>
-                            <div class="card m-1" style="width: 18rem;">
-                                <img src="assets/img/<?= $value['picture'] ?>" class="card-img-top imgSize" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title"><?= $value['firstname'] . ' ' . $value['lastname'] ?></h5>
-                                    <p class="card-text">Âge : <?= $value['age'] ?><br> Code postal : <?= $value['zipcode'] ?></p>
-                                    <p class="text-card"><?= $value['description'] ?></p>
+                <?php
+                if (isset($_COOKIE['user_genderSearch'])) {
+                    if ($_COOKIE['user_genderSearch'] === 'Homme') {
+                        foreach ($user_datas as $key => $value) {
+                            if ($value['gender'] === 'Homme') {
+                ?>
+                                <div class="card m-1" style="width: 18rem;">
+                                    <img src="assets/img/<?= $value['picture'] ?>" class="card-img-top imgSize" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?= $value['firstname'] . ' ' . $value['lastname'] ?></h5>
+                                        <p class="card-text">Âge : <?= $value['age'] ?><br> Code postal : <?= $value['zipcode'] ?></p>
+                                        <p class="text-card"><?= $value['description'] ?></p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <i class="btn corazon p-0 likeBtn"></i>
+                                    </div>
                                 </div>
-                                <div class="card-footer">
-                                    <i class="btn corazon p-0 likeBtn"></i>
+                            <?php
+                            }
+                        }
+                    }
+
+                    if ($_COOKIE['user_genderSearch'] === 'Femme') {
+                        foreach ($user_datas as $key => $value) {
+                            if ($value['gender'] === 'Femme') {
+                            ?>
+
+                                <div class="card m-1" style="width: 18rem;">
+                                    <img src="assets/img/<?= $value['picture'] ?>" class="card-img-top imgSize" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?= $value['firstname'] . ' ' . $value['lastname'] ?></h5>
+                                        <p class="card-text">Âge : <?= $value['age'] ?><br> Code postal : <?= $value['zipcode'] ?></p>
+                                        <p class="text-card"><?= $value['description'] ?></p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <i class="btn corazon p-0 likeBtn"></i>
+                                    </div>
                                 </div>
-                            </div>
-                        <?php
+                <?php
+                            }
                         }
                     }
                 }
-
-                if ($_COOKIE['user_genderSearch'] === 'Femme') {
-                    foreach ($user_datas as $key => $value) {
-                        if ($value['gender'] === 'Femme') {
-                        ?>
-
-                            <div class="card m-1" style="width: 18rem;">
-                                <img src="assets/img/<?= $value['picture'] ?>" class="card-img-top imgSize" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title"><?= $value['firstname'] . ' ' . $value['lastname'] ?></h5>
-                                    <p class="card-text">Âge : <?= $value['age'] ?><br> Code postal : <?= $value['zipcode'] ?></p>
-                                    <p class="text-card"><?= $value['description'] ?></p>
-                                </div>
-                                <div class="card-footer">
-                                    <i class="btn corazon p-0 likeBtn"></i>
-                                </div>
-                            </div>
-            <?php
-                        }
-                    }
-                }
-            }
-            ?>
+                ?>
+            </div>
         </div>
     </div>
 
@@ -253,6 +255,7 @@ if (!isset($_COOKIE['user_genderSearch'])) {
             © 2021 Copyright
         </div>
     </footer>
+
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

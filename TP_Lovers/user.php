@@ -31,74 +31,77 @@ if (isset($_POST['clearCookies'])) {
 </head>
 
 <body>
-    <div id="bodySize">
-        <div class="container-fluid col-12 p-0">
-            <div id="home" class="navbarColor text-center py-2">
-                <nav class="navbar navbar-expand-lg navbar-dark p-2">
-                    <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="d-lg-none m-0">
-                        <h1 class="text-white mx-5"><i class="fas fa-hand-holding-heart"></i> <span class="titleColorPink">Dual </span><span class="titleColorBlue">Love</span></h1>
-                    </div>
-                    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li>
-                                <div class="d-none d-lg-block">
-                                    <h1 class="text-white mx-5"><i class="fas fa-hand-holding-heart"></i> <span class="titleColorPink">Dual </span><span class="titleColorBlue">Love</span></h1>
-                                </div>
-                            </li>
-                            <li class="my-auto">
-                                <a class="navbar-brand text-uppercase text-white mx-5">
-                                    <?= isset($_COOKIE['user_firstName']) ? 'Bonjour ' . $_COOKIE['user_firstName'] . ' <i class="fas fa-heart text-danger"></i>' : 'Bonjour <i class="fas fa-heart text-danger"></i>' ?>
-                                </a>
-                            </li>
-                            <li class="my-auto">
-                                <a class="navbar-brand text-uppercase text-white mx-5" href="lovers.php">Nos célibataires</a>
-                            </li>
-                            <li class="my-auto">
-                                <a class="navbar-brand text-uppercase text-white mx-5" href="user.php">Inscription</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </div>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header border-0">
-                        <h5 class="modal-title text-white font-weight-bold" id="exampleModalLabel">Suppression des Cookies</h5>
-                    </div>
-                    <div class="modal-body bg-white textBlack border-0">
-                        Voulez-vous vraiment supprimer vos cookies ?
-                    </div>
-                    <div class="modal-footer bg-white border-0">
-                        <button type="button" class="btn cancelBtn text-white" data-dismiss="modal">Annuler</button>
-                        <form action="user.php" enctype="multipart/form-data" method="post">
-                            <input class="btn sendBtn" name="clearCookies" type="submit" value="Effacer tout">
-                        </form>
+    <div class="wrapper">
+        <div id="bodySize">
+            <div class="container-fluid col-12 p-0">
+                <div id="home" class="navbarColor text-center py-2">
+                    <nav class="navbar navbar-expand-lg navbar-dark p-2">
+                        <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="d-lg-none m-0">
+                            <h1 class="text-white mx-5"><i class="fas fa-hand-holding-heart"></i> <span class="titleColorPink">Dual </span><span class="titleColorBlue">Love</span></h1>
+                        </div>
+                        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li>
+                                    <div class="d-none d-lg-block">
+                                        <h1 class="text-white mx-5"><i class="fas fa-hand-holding-heart"></i> <span class="titleColorPink">Dual </span><span class="titleColorBlue">Love</span></h1>
+                                    </div>
+                                </li>
+                                <li class="my-auto">
+                                    <a class="navbar-brand text-uppercase text-white mx-5">
+                                        <?= isset($_COOKIE['user_firstName']) ? 'Bonjour ' . $_COOKIE['user_firstName'] . ' <i class="fas fa-heart text-danger"></i>' : 'Bonjour <i class="fas fa-heart text-danger"></i>' ?>
+                                    </a>
+                                </li>
+                                <li class="my-auto">
+                                    <a class="navbar-brand text-uppercase text-white mx-5" href="lovers.php">Nos célibataires</a>
+                                </li>
+                                <li class="my-auto">
+                                    <a class="navbar-brand text-uppercase text-white mx-5" href="user.php">Inscription</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header border-0">
+                            <h5 class="modal-title text-white font-weight-bold" id="exampleModalLabel">Suppression des Cookies</h5>
+                        </div>
+                        <div class="modal-body bg-white textBlack border-0">
+                            Voulez-vous vraiment supprimer vos cookies ?
+                        </div>
+                        <div class="modal-footer bg-white border-0">
+                            <button type="button" class="btn cancelBtn text-white" data-dismiss="modal">Annuler</button>
+                            <form action="user.php" enctype="multipart/form-data" method="post">
+                                <input class="btn sendBtn" name="clearCookies" type="submit" value="Effacer tout">
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <h1 class="text-center textBlack bg-light p-2 col-sm-8 col-lg-12 col-md-12 mb-4">Vos informations</h1>
+            <h1 class="text-center textBlack bg-light p-2 col-sm-8 col-lg-12 col-md-12 mb-4">Vos informations</h1>
 
-        <div class="mt-4 col-xl-4 col-sm-7 mx-auto bgColor">
-            <ul class="userInfosList">
-                <li class="mb-2"><span class="font-weight-bold">Nom : </span><?= isset($_COOKIE['user_lastName']) ? $_COOKIE['user_lastName'] : '' ?></li>
-                <li class="mb-2"><span class="font-weight-bold">Prénom : </span><?= isset($_COOKIE['user_firstName']) ? $_COOKIE['user_firstName'] : '' ?></li>
-                <li class="mb-2"><span class="font-weight-bold">Âge : </span><?= isset($_COOKIE['user_age']) ? $_COOKIE['user_age'] : '' ?></li>
-                <li class="mb-2"><span class="font-weight-bold">Genre : </span><?= isset($_COOKIE['user_gender']) ? $_COOKIE['user_gender'] : '' ?></li>
-                <li class="mb-2"><span class="font-weight-bold">Code postal : </span><?= isset($_COOKIE['user_zipCode']) ? $_COOKIE['user_zipCode'] : '' ?></li>
-                <li class="mb-2"><span class="font-weight-bold">Adresse mail : </span><?= isset($_COOKIE['user_mail']) ? $_COOKIE['user_mail'] : '' ?></li>
-                <li><span class="font-weight-bold">Recherche : </span><?= isset($_COOKIE['user_genderSearch']) ? $_COOKIE['user_genderSearch'] : '' ?></li>
-            </ul>
-            <div class="d-flex text-center justify-content-center">
-                <button type="button" class="btn mx-2 mb-3 sendBtn text-white" data-toggle="modal" data-target="#exampleModal">Effacer tout</button>
-                <a class="btn mx-2 mb-3 sendBtn text-white" target=”_blank href="https://www.meetic.fr/" type="submit">Take my money</a>
+            <div class="mt-4 col-xl-4 col-sm-7 mx-auto bgColor">
+                <ul class="userInfosList">
+                    <li class="mb-2"><span class="font-weight-bold">Nom : </span><?= isset($_COOKIE['user_lastName']) ? $_COOKIE['user_lastName'] : '' ?></li>
+                    <li class="mb-2"><span class="font-weight-bold">Prénom : </span><?= isset($_COOKIE['user_firstName']) ? $_COOKIE['user_firstName'] : '' ?></li>
+                    <li class="mb-2"><span class="font-weight-bold">Âge : </span><?= isset($_COOKIE['user_age']) ? $_COOKIE['user_age'] : '' ?></li>
+                    <li class="mb-2"><span class="font-weight-bold">Genre : </span><?= isset($_COOKIE['user_gender']) ? $_COOKIE['user_gender'] : '' ?></li>
+                    <li class="mb-2"><span class="font-weight-bold">Code postal : </span><?= isset($_COOKIE['user_zipCode']) ? $_COOKIE['user_zipCode'] : '' ?></li>
+                    <li class="mb-2"><span class="font-weight-bold">Adresse mail : </span><?= isset($_COOKIE['user_mail']) ? $_COOKIE['user_mail'] : '' ?></li>
+                    <li><span class="font-weight-bold">Recherche : </span><?= isset($_COOKIE['user_genderSearch']) ? $_COOKIE['user_genderSearch'] : '' ?></li>
+                </ul>
+                <div class="d-flex text-center justify-content-center">
+                    <button type="button" class="btn mx-2 mb-3 sendBtn text-white" data-toggle="modal" data-target="#exampleModal">Effacer tout</button>
+                    <a class="btn mx-2 mb-3 sendBtn text-white" target=”_blank href="https://www.meetic.fr/" type="submit">Take my money</a>
+                </div>
             </div>
         </div>
     </div>

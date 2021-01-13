@@ -133,83 +133,85 @@ if (isset($_POST['submit'])) {
 
 <body>
 
-    <div class="container-fluid text-center p-0">
-        <h1 class="p-2 text-white navbarColor m-0"><i class="fas fa-hand-holding-heart"></i> <span class="titleColorPink">Dual </span><span class="titleColorBlue">Love</span></h1>
-        <h1 class="text-center textBlack bg-light p-2 col-sm-8 col-lg-12 col-md-12 mb-4">Inscription</h1>
-        <div class="bgColor col-xl-3 col-sm-8 mx-auto">
-            <form class="mt-4 pt-3" action="index.php" enctype="multipart/form-data" method="post">
-                <div>
-                    <label for="lastName">Nom</label>
-                </div>
-                <div>
-                    <input class="fields" type="text" id="lastName" name="lastName" value="<?= isset($secureLastName) ? $secureLastName : '' ?>" placeholder="Peplu">
-                </div>
-                <p class="displayMessage">
-                    <?= isset($messageError['lastName']) ? $messageError['lastName'] : '' ?><?= isset($messageSuccess['lastName']) ? $messageSuccess['lastName'] : '' ?>
-                </p>
-                <div>
-                    <label for="firstName">Prénom</label>
-                </div>
-                <div>
-                    <input class="fields" type="text" id="firstName" name="firstName" value="<?= isset($secureFirstName) ? $secureFirstName : '' ?>" placeholder="Jean">
-                </div>
-                <p class="displayMessage">
-                    <?= isset($messageError['firstName']) ? $messageError['firstName'] : '' ?><?= isset($messageSuccess['firstName']) ? $messageSuccess['firstName'] : '' ?>
-                </p>
-                <div>
-                    <label for="age">Âge</label>
-                </div>
-                <div>
-                    <input class="fields" type="number" id="age" name="age" value="<?= isset($secureAge) ? $secureAge : '' ?>" placeholder="50">
-                </div>
-                <p class="displayMessage">
-                    <?= isset($messageError['age']) ? $messageError['age'] : '' ?><?= isset($messageSuccess['age']) ? $messageSuccess['age'] : '' ?>
-                </p>
-                <div>
-                    <label for="gender">Genre</label>
-                </div>
-                <div>
-                    <select class="fields" name="gender" id="gender">
-                        <option>Choisir</option>
-                        <option value="Homme" <?= isset($secureGender) && $secureGender == 'Homme' ? 'selected' : '' ?>>Homme</option>
-                        <option value="Femme" <?= isset($secureGender) && $secureGender == 'Femme' ? 'selected' : '' ?>>Femme</option>
-                    </select>
-                </div>
-                <p class="displayMessage">
-                    <?= isset($messageError['gender']) ? $messageError['gender'] : '' ?><?= isset($messageSuccess['gender']) ? $messageSuccess['gender'] : '' ?>
-                </p>
-                <div>
-                    <label for="zipcode">Code postal</label>
-                </div>
-                <div>
-                    <input class="fields" type="text" id="zipcode" name="zipcode" value="<?= isset($secureZipCode) ? $secureZipCode : '' ?>" placeholder="60200">
-                </div>
-                <p class="displayMessage">
-                    <?= isset($messageError['zipcode']) ? $messageError['zipcode'] : '' ?><?= isset($messageSuccess['zipcode']) ? $messageSuccess['zipcode'] : '' ?>
-                </p>
-                <div>
-                    <label for="mail">Adresse mail</label>
-                </div>
-                <div>
-                    <input class="fields" type="email" id="mail" name="mail" value="<?= isset($secureMail) ? $secureMail : '' ?>" placeholder="jean-peplu@gmail.com">
-                </div>
-                <p class="displayMessage">
-                    <?= isset($messageError['mail']) ? $messageError['mail'] : '' ?><?= isset($messageSuccess['mail']) ? $messageSuccess['mail'] : '' ?>
-                </p>
-                <div>
-                    <label for="genderSearch">Je recherche</label>
-                </div>
-                <div class="text-white">
-                    <input type="radio" id="genderSearch" name="genderSearch" value="Homme" <?= isset($secureGenderSearch) && $secureGenderSearch == 'Homme' ? 'checked' : '' ?>>
-                    <label class="mr-3" for="genderSearch">Homme</label>
-                    <input type="radio" id="genderSearch" name="genderSearch" value="Femme" <?= isset($secureGenderSearch) && $secureGenderSearch == 'Femme' ? 'checked' : '' ?>>
-                    <label for="genderSearch">Femme</label>
-                </div>
-                <p class="displayMessage">
-                    <?= isset($messageError['genderSearch']) ? $messageError['genderSearch'] : '' ?><?= isset($messageSuccess['genderSearch']) ? $messageSuccess['genderSearch'] : '' ?>
-                </p>
-                <input class="btn mb-3 sendBtn" name="submit" type="submit" value="Envoyer">
-            </form>
+    <div class="wrapper">
+        <div class="container-fluid text-center p-0">
+            <h1 class="p-2 text-white navbarColor m-0"><i class="fas fa-hand-holding-heart"></i> <span class="titleColorPink">Dual </span><span class="titleColorBlue">Love</span></h1>
+            <h1 class="text-center textBlack bg-light p-2 col-sm-8 col-lg-12 col-md-12 mb-4">Inscription</h1>
+            <div class="bgColor col-xl-3 col-sm-8 mx-auto">
+                <form class="mt-4 pt-3" action="index.php" enctype="multipart/form-data" method="post">
+                    <div>
+                        <label for="lastName">Nom</label>
+                    </div>
+                    <div>
+                        <input class="fields" type="text" id="lastName" name="lastName" value="<?= isset($secureLastName) ? $secureLastName : '' ?>" placeholder="Peplu">
+                    </div>
+                    <p class="displayMessage">
+                        <?= isset($messageError['lastName']) ? $messageError['lastName'] : '' ?><?= isset($messageSuccess['lastName']) ? $messageSuccess['lastName'] : '' ?>
+                    </p>
+                    <div>
+                        <label for="firstName">Prénom</label>
+                    </div>
+                    <div>
+                        <input class="fields" type="text" id="firstName" name="firstName" value="<?= isset($secureFirstName) ? $secureFirstName : '' ?>" placeholder="Jean">
+                    </div>
+                    <p class="displayMessage">
+                        <?= isset($messageError['firstName']) ? $messageError['firstName'] : '' ?><?= isset($messageSuccess['firstName']) ? $messageSuccess['firstName'] : '' ?>
+                    </p>
+                    <div>
+                        <label for="age">Âge</label>
+                    </div>
+                    <div>
+                        <input class="fields" type="number" id="age" name="age" value="<?= isset($secureAge) ? $secureAge : '' ?>" placeholder="50">
+                    </div>
+                    <p class="displayMessage">
+                        <?= isset($messageError['age']) ? $messageError['age'] : '' ?><?= isset($messageSuccess['age']) ? $messageSuccess['age'] : '' ?>
+                    </p>
+                    <div>
+                        <label for="gender">Genre</label>
+                    </div>
+                    <div>
+                        <select class="fields" name="gender" id="gender">
+                            <option>Choisir</option>
+                            <option value="Homme" <?= isset($secureGender) && $secureGender == 'Homme' ? 'selected' : '' ?>>Homme</option>
+                            <option value="Femme" <?= isset($secureGender) && $secureGender == 'Femme' ? 'selected' : '' ?>>Femme</option>
+                        </select>
+                    </div>
+                    <p class="displayMessage">
+                        <?= isset($messageError['gender']) ? $messageError['gender'] : '' ?><?= isset($messageSuccess['gender']) ? $messageSuccess['gender'] : '' ?>
+                    </p>
+                    <div>
+                        <label for="zipcode">Code postal</label>
+                    </div>
+                    <div>
+                        <input class="fields" type="text" id="zipcode" name="zipcode" value="<?= isset($secureZipCode) ? $secureZipCode : '' ?>" placeholder="60200">
+                    </div>
+                    <p class="displayMessage">
+                        <?= isset($messageError['zipcode']) ? $messageError['zipcode'] : '' ?><?= isset($messageSuccess['zipcode']) ? $messageSuccess['zipcode'] : '' ?>
+                    </p>
+                    <div>
+                        <label for="mail">Adresse mail</label>
+                    </div>
+                    <div>
+                        <input class="fields" type="email" id="mail" name="mail" value="<?= isset($secureMail) ? $secureMail : '' ?>" placeholder="jean-peplu@gmail.com">
+                    </div>
+                    <p class="displayMessage">
+                        <?= isset($messageError['mail']) ? $messageError['mail'] : '' ?><?= isset($messageSuccess['mail']) ? $messageSuccess['mail'] : '' ?>
+                    </p>
+                    <div>
+                        <label for="genderSearch">Je recherche</label>
+                    </div>
+                    <div class="text-white">
+                        <input type="radio" id="genderSearch" name="genderSearch" value="Homme" <?= isset($secureGenderSearch) && $secureGenderSearch == 'Homme' ? 'checked' : '' ?>>
+                        <label class="mr-3" for="genderSearch">Homme</label>
+                        <input type="radio" id="genderSearch" name="genderSearch" value="Femme" <?= isset($secureGenderSearch) && $secureGenderSearch == 'Femme' ? 'checked' : '' ?>>
+                        <label for="genderSearch">Femme</label>
+                    </div>
+                    <p class="displayMessage">
+                        <?= isset($messageError['genderSearch']) ? $messageError['genderSearch'] : '' ?><?= isset($messageSuccess['genderSearch']) ? $messageSuccess['genderSearch'] : '' ?>
+                    </p>
+                    <input class="btn mb-3 sendBtn" name="submit" type="submit" value="Envoyer">
+                </form>
+            </div>
         </div>
     </div>
 
